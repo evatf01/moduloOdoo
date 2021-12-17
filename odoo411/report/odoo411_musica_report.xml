@@ -1,0 +1,30 @@
+<odoo>
+    <record id="odoo411.musica_report" model="ir.actions.report">
+        <field name="name"> Informe de musicas</field>
+        <field name="model">odoo411.musica</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo411.musica_report_view</field>
+        <field name="report_file">odoo411.musica_report</field>
+        <field name="binding_model_id" ref="model_odoo411_musica"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="musica_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>musicas </h1><br />
+                <t t-foreach="docs" t-as="musica">
+                    <ul>
+                        <li>    Clave <span t-field="musica.name" /></li>
+                        <li>    Grupo <span t-field="musica.grupo" /></li>
+                        <li>    Album <span t-field="musica.album" /></li>
+
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

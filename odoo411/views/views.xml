@@ -1,0 +1,138 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="odoo411.list">
+      <field name="name">odoo411 list</field>
+      <field name="model">odoo411.odoo411</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="odoo411.action_window">
+      <field name="name">odoo411 window</field>
+      <field name="res_model">odoo411.odoo411</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odoo411.action_server">
+      <field name="name">odoo411 server</field>
+      <field name="model_id" ref="model_odoo411_odoo411"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odoo411" id="odoo411.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odoo411.menu_1" parent="odoo411.menu_root"/>
+    <menuitem name="Menu 2" id="odoo411.menu_2" parent="odoo411.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odoo411.menu_1_list" parent="odoo411.menu_1"
+              action="odoo411.action_window"/>
+    <menuitem name="Server to list" id="odoo411" parent="odoo411.menu_2"
+              action="odoo411.action_server"/>
+-->
+
+
+       <record model="ir.ui.view" id="odoo411.musica_list_view">
+      <field name="name">odoo411.musica.view.tree</field>
+      <field name="model">odoo411.musica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="grupo"/>
+          <field name="album"/>
+         
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="odoo411.musica_search_view">
+      <field name="name">odoo411.musica.view.search</field>
+      <field name="model">odoo411.musica</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="grupo"/>
+          <field name="album"/>
+          <group>
+            <filter name="group_by_grupo" string="grupo" context="{'gropup_by':'grupo'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="odoo411.musica_form_view">
+      <field name="name">odoo411.musica.view.form</field>
+      <field name="model">odoo411.musica</field>
+      <field name="arch" type="xml">
+        <form string="Información">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Clave <field name="name" placeholder="Clave del grupo"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="grupo" placeholder="nombre del grupo"/>
+                <field name="album" placeholder="nombre del album"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo411.musica_action_window">
+      <field name="name">musica</field>
+      <field name="res_model">odoo411.musica</field>
+      
+    </record>
+
+    <menuitem name="odoo411" id="odoo411.menu_root"/>
+    <menuitem name="GRupos" id="odoo411.menu_musica" parent="odoo411.menu_root"/>
+    <menuitem name="Mostrar" id="odoo411.menu_musica_list" parent="odoo411.menu_musica"
+              action="odoo411.musica_action_window"/>
+<menuitem name="odoo411" id="odoo411.menu_root" web_icon="odoo411,static/description/playerfinal.png" />
+  </data>
+</odoo>
+  
+
+

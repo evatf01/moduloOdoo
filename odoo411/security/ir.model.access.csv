@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo411_musica_usuario,odoo411.musica.usuario,model_odoo411_musica,odoo411.group_odoo411_usuario,1,0,0,0
+access_odoo411_musica_administrador,odoo411.musica.administrador,model_odoo411_musica,odoo411.group_odoo411_administrador,1,1,1,1
